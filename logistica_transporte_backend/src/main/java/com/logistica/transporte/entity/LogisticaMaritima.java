@@ -51,5 +51,4 @@ public class LogisticaMaritima {
     @Column(name = "lm_numero_guia", nullable = false)
     private String numeroGuia;
 
-
 }
