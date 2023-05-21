@@ -13,7 +13,7 @@ import java.math.BigInteger;
 @AllArgsConstructor
 @Builder
 @Entity(name = "lbd_puertos_maritimos")
-public class PuertoMaritimoDTO {
+public class PuertoMaritimo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
