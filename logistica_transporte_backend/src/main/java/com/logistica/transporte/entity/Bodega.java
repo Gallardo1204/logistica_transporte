@@ -20,7 +20,7 @@ public class Bodega {
     @Column(name = "bod_id", nullable = false)
     private Long id;
 
-    @Column(name = "bod_nombre ", nullable = false)
+    @Column(name = "bod_nombre", nullable = false)
     private String nombre;
 
     @Column(name = "bod_direccion", nullable = false)
