@@ -17,7 +17,7 @@ public class ClienteDTO {
 
     private Long id;
 
-    @NotBlank(message = "{cliente.identificacion.notBlank}")
+    @NotBlank(message = "{cliente.nombre.notBlank}")
     private String nombre;
 
     @NotBlank(message = "{cliente.identificacion.notBlank}")
