@@ -1,17 +1,16 @@
 package com.logistica.transporte.dto;
 
-import java.math.BigInteger;
 import java.time.LocalDateTime;
 
 public class LogisticaMaritimaDTO {
 
-    private BigInteger id;
-    private BigInteger idCliente;
-    private BigInteger idProducto;
+    private Long id;
+    private Long idCliente;
+    private Long idProducto;
     private int cantidadProducto;
     private LocalDateTime fechaRegistro;
     private LocalDateTime fechaEntrega;
-    private BigInteger idPuerto;
+    private Long idPuerto;
     private String precioNormal;
     private String precioDescuento;
     private String numeroFlota;
