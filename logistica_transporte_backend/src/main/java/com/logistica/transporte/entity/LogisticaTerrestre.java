@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.math.BigInteger;
 import java.time.LocalDateTime;
 
 @Data
@@ -17,15 +16,15 @@ import java.time.LocalDateTime;
 public class LogisticaTerrestre {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "lt_id", nullable = false)
-    private BigInteger id;
+    private Long id;
 
     @Column(name = "lt_id_cliente", nullable = false)
-    private BigInteger idCliente;
+    private Long idCliente;
 
     @Column(name = "lt_id_producto", nullable = false)
-    private BigInteger idProducto;
+    private Long idProducto;
 
     @Column(name = "lt_cant_producto", nullable = false)
     private int cantidadProducto;
@@ -37,7 +36,7 @@ public class LogisticaTerrestre {
     private LocalDateTime fechaEntrega;
 
     @Column(name = "lt_id_bodega", nullable = false)
-    private BigInteger idBodega;
+    private Long idBodega;
 
     @Column(name = "lt_precio_normal", nullable = false)
     private String precioNormal;

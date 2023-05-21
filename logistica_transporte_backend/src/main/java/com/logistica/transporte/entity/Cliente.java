@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.math.BigInteger;
+
 
 @Data
 @NoArgsConstructor
@@ -16,9 +16,9 @@ import java.math.BigInteger;
 public class Cliente {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "cli_id", nullable = false)
-    private BigInteger id;
+    private Long id;
 
     @Column(name = "cli_nombre", nullable = false)
     private String nombre;

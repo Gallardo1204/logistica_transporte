@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.math.BigInteger;
 import java.time.LocalDateTime;
 
 @Data
@@ -17,15 +16,15 @@ import java.time.LocalDateTime;
 public class LogisticaMaritima {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "lm_id", nullable = false)
-    private BigInteger id;
+    private Long id;
 
     @Column(name = "lm_id_cliente", nullable = false)
-    private BigInteger idCliente;
+    private Long idCliente;
 
     @Column(name = "lm_id_producto", nullable = false)
-    private BigInteger idProducto;
+    private Long idProducto;
 
     @Column(name = "lm_cant_producto", nullable = false)
     private int cantidadProducto;
@@ -37,7 +36,7 @@ public class LogisticaMaritima {
     private LocalDateTime fechaEntrega;
 
     @Column(name = "lm_id_puerto", nullable = false)
-    private BigInteger idPuerto;
+    private Long idPuerto;
 
     @Column(name = "lm_precio_normal", nullable = false)
     private String precioNormal;

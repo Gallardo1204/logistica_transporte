@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.math.BigInteger;
 
 @Data
 @NoArgsConstructor
@@ -16,9 +15,9 @@ import java.math.BigInteger;
 public class Producto {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "pro_id", nullable = false)
-    private BigInteger id;
+    private Long id;
 
     @Column(name = "pro_nombre", nullable = false)
     private String nombre;
