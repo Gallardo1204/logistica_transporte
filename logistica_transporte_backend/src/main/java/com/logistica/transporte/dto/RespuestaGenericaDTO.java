@@ -20,7 +20,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class RespuestaGenerica {
+public class RespuestaGenericaDTO {
 
     private String mensaje;
 

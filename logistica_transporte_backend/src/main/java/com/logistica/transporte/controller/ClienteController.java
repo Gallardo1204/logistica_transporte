@@ -1,7 +1,7 @@
 package com.logistica.transporte.controller;
 
 import com.logistica.transporte.dto.ClienteDTO;
-import com.logistica.transporte.dto.RespuestaGenerica;
+import com.logistica.transporte.dto.RespuestaGenericaDTO;
 import com.logistica.transporte.service.cliente.ClienteService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -21,31 +21,31 @@ public class ClienteController {
 
 
     @GetMapping
-    public ResponseEntity<RespuestaGenerica> getClientes() {
-        return ResponseEntity.ok().body(RespuestaGenerica.builder()
+    public ResponseEntity<RespuestaGenericaDTO> getClientes() {
+        return ResponseEntity.ok().body(RespuestaGenericaDTO.builder()
                 .data(clienteService.getClientes())
                 .build());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<RespuestaGenerica> getClientePorId(@PathVariable("id") Long id) {
-        return ResponseEntity.ok().body(RespuestaGenerica.builder()
+    public ResponseEntity<RespuestaGenericaDTO> getClientePorId(@PathVariable("id") Long id) {
+        return ResponseEntity.ok().body(RespuestaGenericaDTO.builder()
                 .data(clienteService.getClientePorId(id))
                 .build());
     }
 
     @PostMapping
-    public ResponseEntity<RespuestaGenerica> crearCliente(@Valid @RequestBody ClienteDTO cliente) {
+    public ResponseEntity<RespuestaGenericaDTO> crearCliente(@Valid @RequestBody ClienteDTO cliente) {
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(RespuestaGenerica.builder()
+                .body(RespuestaGenericaDTO.builder()
                         .data(clienteService.crearCliente(cliente))
                         .mensaje("Cliente creado exitosamente")
                         .build());
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<RespuestaGenerica> actualizarCliente(@PathVariable("id") Long id, @Valid @RequestBody ClienteDTO cliente) {
-        return ResponseEntity.ok(RespuestaGenerica.builder()
+    public ResponseEntity<RespuestaGenericaDTO> actualizarCliente(@PathVariable("id") Long id, @Valid @RequestBody ClienteDTO cliente) {
+        return ResponseEntity.ok(RespuestaGenericaDTO.builder()
                 .data(clienteService.actualizarCliente(id, cliente))
                 .mensaje("Cliente actualizado correctamente")
                 .build());
@@ -53,8 +53,8 @@ public class ClienteController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<RespuestaGenerica> eliminarCliente(@PathVariable("id") Long id) {
-        return ResponseEntity.ok(RespuestaGenerica.builder()
+    public ResponseEntity<RespuestaGenericaDTO> eliminarCliente(@PathVariable("id") Long id) {
+        return ResponseEntity.ok(RespuestaGenericaDTO.builder()
                 .data(clienteService.eliminarCliente(id))
                 .mensaje("Cliente eliminado exitosamente")
                 .build());

@@ -1,6 +1,6 @@
 package com.logistica.transporte.controller;
 
-import com.logistica.transporte.dto.RespuestaGenerica;
+import com.logistica.transporte.dto.RespuestaGenericaDTO;
 import com.logistica.transporte.exception.ResourceNotFoundException;
 import com.logistica.transporte.exception.ServiceException;
 import com.logistica.transporte.util.MensajesService;
@@ -27,39 +27,39 @@ public class ControllerExceptionHandler {
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(ConstraintViolationException.class)
-    public RespuestaGenerica constraintsValidationHandler(ConstraintViolationException e) {
+    public RespuestaGenericaDTO constraintsValidationHandler(ConstraintViolationException e) {
 
         List<String> errors = e.getConstraintViolations().stream().map(constraintViolation -> constraintViolation.getMessage()).toList();
 
-        return RespuestaGenerica.builder().mensaje(mensajesService.getMensaje("global.error.found")).errores(errors).build();
+        return RespuestaGenericaDTO.builder().mensaje(mensajesService.getMensaje("global.error.found")).errores(errors).build();
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public RespuestaGenerica methodArgumentNotValidExceptionHandler(MethodArgumentNotValidException e) {
+    public RespuestaGenericaDTO methodArgumentNotValidExceptionHandler(MethodArgumentNotValidException e) {
 
         List<String> errors = e.getBindingResult().getFieldErrors().stream().map(error -> error.getDefaultMessage()).toList();
 
-        return RespuestaGenerica.builder().mensaje(mensajesService.getMensaje("global.error.found")).errores(errors).build();
+        return RespuestaGenericaDTO.builder().mensaje(mensajesService.getMensaje("global.error.found")).errores(errors).build();
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(ServiceException.class)
-    public RespuestaGenerica serviceExceptionHandler(ServiceException e) {
-        return RespuestaGenerica.builder().mensaje(e.getMessage()).build();
+    public RespuestaGenericaDTO serviceExceptionHandler(ServiceException e) {
+        return RespuestaGenericaDTO.builder().mensaje(e.getMessage()).build();
     }
 
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(ResourceNotFoundException.class)
-    public RespuestaGenerica resourceNotFoundException(ResourceNotFoundException e) {
-        return RespuestaGenerica.builder().mensaje(e.getMessage()).build();
+    public RespuestaGenericaDTO resourceNotFoundException(ResourceNotFoundException e) {
+        return RespuestaGenericaDTO.builder().mensaje(e.getMessage()).build();
     }
 
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler(Exception.class)
-    public RespuestaGenerica resourceNotFoundException(Exception e) {
+    public RespuestaGenericaDTO resourceNotFoundException(Exception e) {
         e.printStackTrace();
-        return RespuestaGenerica.builder().mensaje(mensajesService.getMensaje("global.internal.server.error")).build();
+        return RespuestaGenericaDTO.builder().mensaje(mensajesService.getMensaje("global.internal.server.error")).build();
     }
 
 }
