@@ -29,7 +29,7 @@ public class BeanConfig {
     public WebMvcConfigurer corsConfigurer() {
         String[] allowDomains = new String[2];
         allowDomains[0] = "http://localhost:4200";
-        allowDomains[1] = "http://localhost:8080";
+        allowDomains[1] = "http://localhost:8001";
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {

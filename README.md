@@ -21,7 +21,7 @@ Ejecutar aplicación en modo local (Conectando a base de datos local)
 
 ## Swagger
 
-http://localhost:8001/swagger-ui.html
+http://localhost:8001/swagger-ui/index.html
 
 ## Tech Stack
 
